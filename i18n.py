@@ -25,8 +25,18 @@ TRANSLATIONS = {
         "opt_user": "Change Nickname",
         "opt_settings": "Settings (RAM, Java, JVM args)",
         "opt_lang": "Change Language",
+        "opt_update": "Check for Updates",
         "opt_exit": "Exit",
-        "enter_choice": "Select an action [1-6]: ",
+        "enter_choice": "Select an action [1-7]: ",
+        
+        # Updater
+        "update_title": "CHECK FOR UPDATES",
+        "update_checking": "Checking for updates on GitHub...",
+        "update_available": "New update available: v{latest} (current: v{current})!",
+        "update_latest": "You are using the latest version of lazymc.",
+        "update_prompt": "Update lazymc now? [Y/N]: ",
+        "update_downloading": "Downloading update files ({done}/{total}: {file})...",
+        "update_success": "lazymc updated successfully! Please restart the launcher.",
         
         # Nickname
         "nick_title": "CHANGE NICKNAME",
@@ -125,8 +135,18 @@ TRANSLATIONS = {
         "opt_user": "Сменить никнейм",
         "opt_settings": "Настройки (ОЗУ, Java, аргументы JVM)",
         "opt_lang": "Сменить язык интерфейса",
+        "opt_update": "Проверить обновления",
         "opt_exit": "Выход",
-        "enter_choice": "Выберите действие [1-6]: ",
+        "enter_choice": "Выберите действие [1-7]: ",
+        
+        # Updater
+        "update_title": "ПРОВЕРКА ОБНОВЛЕНИЙ",
+        "update_checking": "Проверка обновлений на GitHub...",
+        "update_available": "Доступно новое обновление: v{latest} (текущая: v{current})!",
+        "update_latest": "У вас установлена последняя версия lazymc.",
+        "update_prompt": "Обновить lazymc прямо сейчас? [Y/N]: ",
+        "update_downloading": "Загрузка файлов обновления ({done}/{total}: {file})...",
+        "update_success": "lazymc успешно обновлен! Пожалуйста, перезапустите лаунчер.",
         
         # Nickname
         "nick_title": "СМЕНА НИКНЕЙМА",
@@ -225,8 +245,18 @@ TRANSLATIONS = {
         "opt_user": "Змінити нікнейм",
         "opt_settings": "Налаштування (ОЗП, Java, аргументи JVM)",
         "opt_lang": "Змінити мову інтерфейсу",
+        "opt_update": "Перевірити оновлення",
         "opt_exit": "Вихід",
-        "enter_choice": "Оберіть дію [1-6]: ",
+        "enter_choice": "Оберіть дію [1-7]: ",
+        
+        # Updater
+        "update_title": "ПЕРЕВІРКА ОНОВЛЕНЬ",
+        "update_checking": "Перевірка оновлень на GitHub...",
+        "update_available": "Доступне нове оновлення: v{latest} (поточна: v{current})!",
+        "update_latest": "У вас встановлена остання версія lazymc.",
+        "update_prompt": "Оновити lazymc зараз? [Y/N]: ",
+        "update_downloading": "Завантаження файлів оновлення ({done}/{total}: {file})...",
+        "update_success": "lazymc успішно оновлено! Будь ласка, перезапустіть лаунчер.",
         
         # Nickname
         "nick_title": "ЗМІНА НІКНЕЙМА",

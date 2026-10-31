@@ -22,6 +22,7 @@ from config import load_config, save_config, DEFAULT_CONFIG
 from java_detector import find_all_javas, resolve_best_java, get_required_java_version, get_java_version
 from mojang import fetch_manifest, download_full_version, check_missing_dependencies
 from launcher import launch_game
+from updater import check_for_updates, apply_update, CURRENT_VERSION
 from ui import (
     clear_screen, print_banner, draw_box, render_progress_bar,
     get_installed_versions, C_RESET, C_BOLD, C_GRAY, C_RED,
@@ -434,6 +435,38 @@ def action_launch_game(config: dict):
         input("\nPress Enter to continue...")
 
 
+def action_check_updates():
+    print_banner()
+    draw_box(i18n("update_title"), [
+        i18n("update_checking")
+    ])
+    print()
+    info = check_for_updates()
+    print_banner()
+    if info:
+        lines = [
+            f"{C_GREEN}★ {i18n('update_available', latest=info['latest'], current=info['current'])}{C_RESET}",
+            "",
+            f"{C_WHITE}Notes:{C_RESET}",
+            f" {info.get('notes', 'No notes provided.')}"
+        ]
+        draw_box(i18n("update_title"), lines)
+        ans = input(f"\n{C_CYAN}{i18n('update_prompt')}{C_RESET}").strip().lower()
+        if ans in ["y", "yes", "д", "да", "1"]:
+            project_dir = os.path.dirname(os.path.abspath(__file__))
+            print()
+            def update_progress(done, total, fname):
+                render_progress_bar(done, total, prefix="Updating", length=25)
+            apply_update(project_dir, progress_callback=update_progress)
+            print(f"\n\n {C_GREEN}✓ {i18n('update_success')}{C_RESET}\n")
+            input("Press Enter to continue...")
+    else:
+        draw_box(i18n("update_title"), [
+            f"{C_GREEN}✓ {i18n('update_latest')} (v{CURRENT_VERSION}){C_RESET}"
+        ])
+        time.sleep(2)
+
+
 def ensure_dependencies():
     """Checks and automatically installs any missing python libraries."""
     required = []
@@ -458,7 +491,7 @@ def main():
     # Enable ANSI escape sequences on Windows
     os.system("")
     if sys.platform == "win32":
-        os.system("title lazymc v0.1.2")
+        os.system("title lazymc v0.2.0")
 
     ensure_dependencies()
     config = load_config()
@@ -482,7 +515,8 @@ def main():
             f"{C_YELLOW}[3] 👤 {i18n('opt_user')}{C_RESET}",
             f"{C_WHITE}[4] ⚙️  {i18n('opt_settings')}{C_RESET}",
             f"{C_WHITE}[5] 🌐 {i18n('opt_lang')}{C_RESET}",
-            f"{C_RED}[6] 🚪 {i18n('opt_exit')}{C_RESET}",
+            f"{C_CYAN}[6] 🔄 {i18n('opt_update')}{C_RESET}",
+            f"{C_RED}[7] 🚪 {i18n('opt_exit')}{C_RESET}",
         ]
         print()
         for item in menu_items:
@@ -502,6 +536,8 @@ def main():
         elif choice == "5":
             menu_select_language(config)
         elif choice == "6":
+            action_check_updates()
+        elif choice == "7":
             print_banner()
             print(f"\n  {C_GREEN}Goodbye! До зустрічі! Пока!{C_RESET}\n")
             break

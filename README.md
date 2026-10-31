@@ -1,4 +1,4 @@
-# ⚡ lazymc `v0.1.2`
+# ⚡ lazymc
 
 > A lightning-fast, lightweight terminal launcher for Minecraft with zero bloat and zero manual setup.
 
@@ -14,7 +14,7 @@
  | |/ _` |_  / | | | '_ ` _ \ / __|   
  | | (_| |/ /| |_| | | | | | | (__    
  |_|\__,_/___|\__, |_| |_| |_|\___|   
-              |___/                               v0.1.2
+              |___/                   
 ```
 
 ---
@@ -23,13 +23,15 @@
 
 - **⚡ Zero Manual Setup (Self-Bootstrapping)**:
   - If Python is not installed on the system, `lazymc.bat` automatically provisions official, isolated portable Python 3.11 embeddable in seconds. No administrator permissions or manual Python installations needed.
+- **🔄 Built-in GitHub Auto-Updater**:
+  - Automatically checks for updates and allows seamless 1-click upgrading directly from the official GitHub repository.
 - **📦 Comprehensive Mojang Version Catalog**:
   - Connects directly to the official Mojang version manifest API (`piston-meta.mojang.com`).
   - **Releases**: All official releases from the latest versions back to legacy releases.
   - **Snapshots**: Development previews and test builds.
   - **April Fools Updates**: Special joke versions with descriptions (e.g. `24w14potato` Poisonous Potato, `23w13a_or_b` The Vote Update, `20w14infinite` Infinite Dimensions, `3D Shareware v1.34`, `1.RV-Pre1` Trendy Update).
   - **Nostalgia (Beta / Alpha)**: Classic legacy versions.
-- **🔄 Pre-Launch Dependency Self-Healing**:
+- **🛡️ Pre-Launch Dependency Self-Healing**:
   - Automatically verifies the integrity of the selected version prior to launching.
   - Detects missing `client.jar`, libraries, assets, or native `.dll` files and downloads only what is missing without crashing.
 - **☕ Intelligent Java Runtime Resolver**:
@@ -38,7 +40,7 @@
 - **🌍 Trilingual Interface**:
   - Auto-detects the system display language via Windows API (`uk` Ukrainian, `ru` Russian, `en` English fallback).
   - Allows manual language switching at any time.
-- **🛡️ Windows Command-Line Length Limit Bypass**:
+- **⚡ Windows Command-Line Length Limit Bypass**:
   - Uses modern Java 9+ `@argfile` parameters to bypass the Windows 8,191-character command prompt limit, preventing crashes on heavily modded or library-dense versions.
 - **🖥️ Live Console Log Streaming**:
   - Real-time game process output streaming with color-coded log levels (`ERROR` in red, `WARN` in yellow).
@@ -72,7 +74,8 @@ python main.py
 | `[3]` | **Change Nickname** | Sets the offline player profile nickname and generates UUID |
 | `[4]` | **Settings** | Configure RAM allocation (Xmx), Java executable, game directory |
 | `[5]` | **Language** | Switch language between English, Русский, and Українська |
-| `[6]` | **Exit** | Close the launcher |
+| `[6]` | **Check for Updates** | Verify and install the latest updates from GitHub |
+| `[7]` | **Exit** | Close the launcher |
 
 ### Version Catalog Navigation:
 - `[1]`, `[2]`, `[3]`, `[4]` — Switch between tabs (**Releases**, **Snapshots**, **April Fools**, **Beta/Alpha**)
@@ -111,9 +114,11 @@ lazymc/
 ├── mojang.py           # Mojang manifest fetching, multithreaded downloader
 ├── launcher.py         # JVM argument parsing, classpath argfile builder
 ├── java_detector.py    # Automatic JVM runtime scanner and compatibility resolver
+├── updater.py          # GitHub auto-updater engine
 ├── config.py           # Persistent configuration management
 ├── ui.py               # TUI rendering, ANSI styling, text-wrapping box layouts
 ├── i18n.py             # Translations and system locale auto-detection
+├── version.json        # Release metadata and version tracking
 ├── LICENSE             # Apache 2.0 License
 └── README.md           # Documentation
 ```

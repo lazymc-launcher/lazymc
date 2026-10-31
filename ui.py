@@ -22,7 +22,7 @@ C_CYAN = "\033[96m"
 C_WHITE = "\033[97m"
 
 
-APP_VERSION = "v0.1.2"
+APP_VERSION = "v0.2.0"
 
 
 def clear_screen():

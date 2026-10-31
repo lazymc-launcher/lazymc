@@ -1,5 +1,5 @@
 @echo off
-title lazymc v0.1.2
+title lazymc v0.2.0
 
 set "PY_CMD="
 
