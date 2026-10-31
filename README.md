@@ -63,6 +63,12 @@ python main.py
 ```
 *(If Python is not installed on your system, `lazymc.bat` will automatically download and configure portable Python for you).*
 
+### ⚡ PowerShell Edition (Single File, No Python Required)
+If you prefer not to use Python at all, use **`lazymc-ps.bat`** — the full launcher packed into a **single standalone `.bat` file** powered by native Windows PowerShell:
+- **Zero dependencies**: runs on any clean Windows 10/11 system out of the box.
+- Contains the full feature set (Mojang catalog, Java detection, April Fools updates, argfile bypass).
+- Just download `lazymc-ps.bat` and double-click to run!
+
 ---
 
 ## ⌨️ Navigation & Controls
